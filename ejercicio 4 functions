@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function calcularMedias($notas) {
+    $medias = [];
+
+    foreach ($notas as $persona => $calificaciones) {
+        if (empty($calificaciones)) {
+            $medias[$persona] = false;
+        } else {
+            $suma = array_sum($calificaciones);
+            $cantidad = count($calificaciones);
+            $medias[$persona] = round($suma / $cantidad, 2); // Redondeo a dos decimales
+        }
+    }
+
+    return $medias;
+}
+?>
+
+<?php
+include 'funciones/funcionesXY.php';
+
+$notas = [
+    "Luz" => [7.2, 9.7, 8],
+    "Alberto" => [],
+    "Juan" => [4.1, 8]
+];
+
+$resultado = calcularMedias($notas);
+var_dump($resultado);
+
+/* Resultado esperado:
+array(3) {
+  ["Luz"]=> float(8.3)
+  ["Alberto"]=> bool(false)
+  ["Juan"]=> float(6.05)
+}
+*/
+
+?> 
+</body>
+</html>
