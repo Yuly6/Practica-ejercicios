@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
 $libros = [
     'libro1' => [
         'titulo' => 'la mala costumbre',
@@ -56,9 +61,8 @@ $librosConPaginas = [
 ];
 
 ?>
-Archivo prac1XY.php:
-php
-Copiar código
+<h2>Biblioteca</h2>
+
 <?php
 include 'funciones/biblioteca.php';
 
@@ -80,4 +84,7 @@ foreach ($librosConPaginas as $libro) {
 }
 
 echo "</table>";
-?>
+?> 
+
+</body>
+</html>
