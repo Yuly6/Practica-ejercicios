@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+// Esta función aplica un descuento a los precios de los productos en una tienda.
+// - $descuento (float): Es el porcentaje de descuento que se quiere aplicar (por ejemplo, 0.20 para un 20% de descuento).
+// - $productos (array asociativo): Un array donde las claves son los nombres de los productos y los valores son los precios.
+// La función devuelve un nuevo array asociativo donde cada producto contiene el precio original y el precio con el descuento aplicado.
+
+function aplicarDescuento($descuento, $productos) {
+    $productosConDescuento = [];
+
+    foreach ($productos as $producto => $precio) {
+        // Calcula el precio con descuento
+        $precioConDescuento = $precio - ($precio * $descuento);
+        // Almacena tanto el precio original como el precio con descuento
+        $productosConDescuento[$producto] = [
+            'precioOriginal' => round($precio, 2),
+            'precioConDescuento' => round($precioConDescuento, 2)
+        ];
+    }
+
+    return $productosConDescuento;
+}
+?>
+
+<?php
+include 'funciones/funcionesXY.php';
+
+// Array asociativo de productos con sus precios originales
+$productos = [
+    "Camiseta" => 20.00,
+    "Pantalón" => 35.50,
+    "Zapatos" => 60.75
+];
+
+// Llamadas a la función aplicarDescuento
+$resultado1 = aplicarDescuento(0.10, $productos); // Aplica un 10% de descuento
+echo "Precios con 10% de descuento:<br>";
+foreach ($resultado1 as $producto => $detalles) {
+    echo "$producto: Precio original: " . $detalles['precioOriginal'] . " €, Precio con descuento: " . $detalles['precioConDescuento'] . " €<br>";
+}
+
+$resultado2 = aplicarDescuento(0.25, $productos); // Aplica un 25% de descuento
+echo "<br>Precios con 25% de descuento:<br>";
+foreach ($resultado2 as $producto => $detalles) {
+    echo "$producto: Precio original: " . $detalles['precioOriginal'] . " €, Precio con descuento: " . $detalles['precioConDescuento'] . " €<br>";
+}
+?>
+
+
+</body>
+</html>
