@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function describirPersona($persona) {
+    $nombre = $persona['nombre'];
+    $edad = $persona['edad'];
+    $matricula = $persona['matricula'] ? 'sí' : 'no';
+    
+    return "$nombre tiene $edad años y $matricula tiene matrícula.";
+}
+?>
+
+<?php
+include 'funciones/funcionesXY.php';
+
+// Primer ejemplo
+$persona1 = ["nombre" => "Luz", "edad" => 22, "matricula" => true];
+echo describirPersona($persona1); // Luz tiene 22 años y sí tiene matrícula.
+
+echo "<br>";
+
+// Segundo ejemplo
+$persona2 = ["nombre" => "Carlos", "edad" => 30, "matricula" => false];
+echo describirPersona($persona2); // Carlos tiene 30 años y no tiene matrícula.
+
+echo "<br>";
+
+// Tercer ejemplo
+$persona3 = ["nombre" => "Ana", "edad" => 25, "matricula" => true];
+echo describirPersona($persona3); // Ana tiene 25 años y sí tiene matrícula.
+?>
+</body>
+</html>
